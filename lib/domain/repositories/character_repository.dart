@@ -4,5 +4,5 @@ import 'package:marvel_app/domain/entities/character.dart';
 
 abstract class CharacterRepository {
   Future<Either<Failure, List<Character>>> getMany(int offset);
-  Future<Either<Failure, List<Character>>> getDetails(int id);
+  Future<Either<Failure, Character>> getDetails(int id);
 }

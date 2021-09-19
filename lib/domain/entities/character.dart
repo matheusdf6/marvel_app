@@ -5,11 +5,11 @@ class Character {
   final String thumbnail;
   final List<String> comics;
 
-  const Character({
+  Character({
     required this.id,
     required this.name,
     required this.description,
     required this.thumbnail,
-    required this.comics
+    required this.comics,
   });
 }

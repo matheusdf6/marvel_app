@@ -18,5 +18,5 @@ class GetCharacterList extends UseCase<List<Character>, GetCharacterListParams> 
 class GetCharacterListParams {
   final int offset;
 
-  const GetCharacterListParams({this.offset = 0});
+  GetCharacterListParams({this.offset = 0});
 }
