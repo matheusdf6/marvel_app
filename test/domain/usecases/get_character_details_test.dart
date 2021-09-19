@@ -7,7 +7,7 @@ import 'package:marvel_app/domain/usecases/get_character_details.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'get_character_list_test.mocks.dart';
+import 'get_character_details_test.mocks.dart';
 
 @GenerateMocks([CharacterRepository])
 void main() {
@@ -63,7 +63,7 @@ void main() {
 
   test('should return a failure when occur error', () async {
     // Arrange
-    when(mockedRepository.getDetails(testId)).thenAnswer((_) async => Left(NetworkFailure()));
+    when(mockedRepository.getDetails(testId)).thenAnswer((_) async => Left(ServerFailure()));
 
     // Act
     final result = await getCharacterDetails(GetCharacterDetailsParams(
@@ -74,7 +74,7 @@ void main() {
     expect(result, isA<Left>());
 
     result.fold(
-      (left) => expect(left, isA<NetworkFailure>()),
+      (left) => expect(left, isA<ServerFailure>()),
       (r) => fail('Should not be here'),
     );
   });

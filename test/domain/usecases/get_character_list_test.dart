@@ -73,7 +73,7 @@ void main() {
 
   test('should return a failure when an error occur', () async {
     // Arrange
-    when(mockedRepository.getMany(0)).thenAnswer((_) async => Left(NetworkFailure()));
+    when(mockedRepository.getMany(0)).thenAnswer((_) async => Left(ServerFailure()));
 
     // Act
     final result = await getCharacterList(GetCharacterListParams());
@@ -81,7 +81,7 @@ void main() {
     // Assert
     expect(result, isA<Left>());
     result.fold(
-      (left) => expect(left, isA<NetworkFailure>()),
+      (left) => expect(left, isA<ServerFailure>()),
       (r) => fail('Should not be here'),
     );
   });
