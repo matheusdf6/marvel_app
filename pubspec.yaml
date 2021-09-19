@@ -43,7 +43,9 @@ dependencies:
   http: ^0.13.3
   # Criptografia
   crypto: ^3.0.1
-
+  # Equatable
+  equatable: ^2.0.3
+  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2

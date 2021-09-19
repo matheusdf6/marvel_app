@@ -1,4 +1,6 @@
-class Character {
+import 'package:equatable/equatable.dart';
+
+class Character extends Equatable {
   final int id;
   final String name;
   final String description;
@@ -12,4 +14,7 @@ class Character {
     required this.thumbnail,
     required this.comics,
   });
+
+  @override
+  List<Object?> get props => [id, name, description, thumbnail, comics];
 }
