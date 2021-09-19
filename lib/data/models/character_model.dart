@@ -1,4 +1,6 @@
-import 'package:marvel_app/domain/entities/Character.dart';
+import 'dart:convert';
+
+import 'package:marvel_app/domain/entities/character.dart';
 
 class CharacterModel extends Character {
   CharacterModel({
@@ -15,16 +17,34 @@ class CharacterModel extends Character {
           comics: comics,
         );
 
-  factory CharacterModel.fromJson(Map<String, dynamic> map) {
+  factory CharacterModel.fromRemoteJson(Map<String, dynamic> map) {
     final path = map['thumbnail']['path'] as String;
     final extension = map['thumbnail']['extension'] as String;
+    final comics = List.from(map['comics']['items']);
+    final comicNameList = comics.map<String>((comic) => comic['name']).toList();
 
     return CharacterModel(
       id: map['id'] as int,
       name: map['name'] as String,
       description: map['description'] as String,
       thumbnail: '$path.$extension',
-      comics: List<String>.from(map['comics']['items']),
+      comics: comicNameList,
     );
   }
+
+  factory CharacterModel.fromLocalJson(Map<String, dynamic> map) => CharacterModel(
+        id: map['id'] as int,
+        name: map['name'] as String,
+        description: map['description'] as String,
+        thumbnail: map['thumbnail'] as String,
+        comics: List<String>.from(map['comics']),
+      );
+
+  static String toJson(CharacterModel model) => json.encode({
+        'id': model.id,
+        'name': model.name,
+        'description': model.description,
+        'thumbnail': model.thumbnail,
+        'comics': model.comics,
+      });
 }

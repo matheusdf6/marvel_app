@@ -1,3 +1,4 @@
+import 'package:marvel_app/core/errors/exceptions.dart';
 import 'package:marvel_app/data/datasources/character_remote_data_source.dart';
 import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/core/errors/failures.dart';
@@ -13,10 +14,11 @@ class CharacterRepositoryImpl implements CharacterRepository {
   Future<Either<Failure, Character>> getDetails(int id) async {
     try {
       final character = await remoteDataSource.show(id);
-      storeInCache(character);
-      return Right(character as Character);
+      return Right(character);
+    } on NotFoundException {
+      return Left(NotFoundFailure());
     } on Exception {
-      return Left(NetworkFailure());
+      return Left(ServerFailure());
     }
   }
 
@@ -25,9 +27,9 @@ class CharacterRepositoryImpl implements CharacterRepository {
     try {
       final characterList = await remoteDataSource.index(offset);
       characterList.forEach(storeInCache);
-      return Right(characterList as List<Character>);
+      return Right(characterList);
     } on Exception {
-      return Left(NetworkFailure());
+      return Left(ServerFailure());
     }
   }
 

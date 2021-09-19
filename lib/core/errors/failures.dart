@@ -6,7 +6,7 @@ abstract class Failure {
 
 class CacheFailure extends Failure {}
 
-class NetworkFailure extends Failure {}
+class ServerFailure extends Failure {}
 
 class NotFoundFailure extends Failure {}
 

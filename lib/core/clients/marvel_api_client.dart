@@ -6,10 +6,12 @@ class MarvelApiClient {
   final String baseurl = 'http://gateway.marvel.com/v1/public';
   String _publicKey = '';
   String _privateKey = '';
+  http.Client client;
 
   MarvelApiClient({
     required String public,
     required String private,
+    required this.client,
   }) {
     _publicKey = public;
     _privateKey = private;
@@ -25,12 +27,15 @@ class MarvelApiClient {
     return hash.toString();
   }
 
-  @override
-  Future<Map<String, dynamic>> get(String url) async {
+  Uri generateUrl(String path) {
     final timestamp = generateTimestamp();
     final hash = generateHash(timestamp);
-    final response =
-        await http.get(Uri.parse('$baseurl$url?ts=$timestamp&apikey=$_publicKey&hash=$hash'));
+    return Uri.parse('$baseurl$path?ts=$timestamp&apikey=$_publicKey&hash=$hash');
+  }
+
+  Future<Map<String, dynamic>> get(String path) async {
+    final url = generateUrl(path);
+    final response = await client.get(url);
     return json.decode(response.body);
   }
 }
