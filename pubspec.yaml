@@ -45,7 +45,11 @@ dependencies:
   crypto: ^3.0.1
   # Equatable
   equatable: ^2.0.3
-  
+  # Environment Variables
+  flutter_dotenv: ^5.0.2
+  # Services provider
+  provider: ^6.0.0
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
