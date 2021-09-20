@@ -19,7 +19,7 @@ class MarvelApiClient {
   }
 
   int generateTimestamp() {
-    return DateTime.now().microsecondsSinceEpoch;
+    return DateTime.now().millisecondsSinceEpoch;
   }
 
   Digest generateHash(int timestamp) {
@@ -30,7 +30,8 @@ class MarvelApiClient {
   Uri generateUrl(String path) {
     final timestamp = generateTimestamp();
     final hash = generateHash(timestamp);
-    return Uri.parse('$baseurl$path?ts=$timestamp&apikey=$_publicKey&hash=$hash');
+    final separator = path.contains('?') ? '&' : '?';
+    return Uri.parse('$baseurl$path${separator}ts=$timestamp&apikey=$_publicKey&hash=$hash');
   }
 
   Future<Map<String, dynamic>> get(String path) async {
