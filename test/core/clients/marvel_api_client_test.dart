@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:marvel_app/core/clients/marvel_api_client.dart';
 import 'package:mockito/annotations.dart';
@@ -9,6 +12,8 @@ import '../../fixtures/fixture_reader.dart';
 
 @GenerateMocks([http.Client])
 void main() async {
+  dotenv.testLoad(fileInput: File('test/.env').readAsStringSync());
+
   late MarvelApiClient apiClient;
   late MockClient httpClient;
   const public = '01234';
@@ -16,14 +21,18 @@ void main() async {
   const testTimestamp = 9999999999;
   const testHash = '21295936104e22f306d0159e9040eb34'; // http://www.md5.cz/
   final testData = await fixture('characters.json');
-
   void setUpMockClientSuccess() {
     when(httpClient.get(any)).thenAnswer((_) async => http.Response(testData, 200));
   }
 
   setUp(() {
     httpClient = MockClient();
-    apiClient = MarvelApiClient(public: public, private: private, client: httpClient);
+    apiClient = MarvelApiClient(
+      public: public,
+      private: private,
+      client: httpClient,
+      baseurl: dotenv.get('MARVEL_API_BASE'),
+    );
   });
 
   test('should generate timestamp of current time', () async {

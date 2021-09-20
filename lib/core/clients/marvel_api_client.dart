@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class MarvelApiClient {
-  final String baseurl = 'http://gateway.marvel.com/v1/public';
+  String baseurl = '';
   String _publicKey = '';
   String _privateKey = '';
   http.Client client;
 
   MarvelApiClient({
+    required this.baseurl,
     required String public,
     required String private,
     required this.client,
@@ -21,10 +22,9 @@ class MarvelApiClient {
     return DateTime.now().microsecondsSinceEpoch;
   }
 
-  String generateHash(int timestamp) {
-    final bytes = utf8.encode('$timestamp$_publicKey$_privateKey');
-    final hash = md5.convert(bytes);
-    return hash.toString();
+  Digest generateHash(int timestamp) {
+    final bytes = utf8.encode('$timestamp$_privateKey$_publicKey');
+    return md5.convert(bytes);
   }
 
   Uri generateUrl(String path) {

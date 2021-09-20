@@ -2,10 +2,11 @@
 // in marvel_app/test/data/datasources/character_remote_data_source_test.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
+import 'package:crypto/crypto.dart' as _i3;
 import 'package:http/http.dart' as _i2;
-import 'package:marvel_app/core/clients/marvel_api_client.dart' as _i3;
+import 'package:marvel_app/core/clients/marvel_api_client.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -19,12 +20,14 @@ import 'package:mockito/mockito.dart' as _i1;
 
 class _FakeClient_0 extends _i1.Fake implements _i2.Client {}
 
-class _FakeUri_1 extends _i1.Fake implements Uri {}
+class _FakeDigest_1 extends _i1.Fake implements _i3.Digest {}
+
+class _FakeUri_2 extends _i1.Fake implements Uri {}
 
 /// A class which mocks [MarvelApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockMarvelApiClient extends _i1.Mock implements _i3.MarvelApiClient {
+class MockMarvelApiClient extends _i1.Mock implements _i4.MarvelApiClient {
   MockMarvelApiClient() {
     _i1.throwOnMissingStub(this);
   }
@@ -33,6 +36,10 @@ class MockMarvelApiClient extends _i1.Mock implements _i3.MarvelApiClient {
   String get baseurl =>
       (super.noSuchMethod(Invocation.getter(#baseurl), returnValue: '')
           as String);
+  @override
+  set baseurl(String? _baseurl) =>
+      super.noSuchMethod(Invocation.setter(#baseurl, _baseurl),
+          returnValueForMissingStub: null);
   @override
   _i2.Client get client => (super.noSuchMethod(Invocation.getter(#client),
       returnValue: _FakeClient_0()) as _i2.Client);
@@ -45,18 +52,18 @@ class MockMarvelApiClient extends _i1.Mock implements _i3.MarvelApiClient {
       (super.noSuchMethod(Invocation.method(#generateTimestamp, []),
           returnValue: 0) as int);
   @override
-  String generateHash(int? timestamp) =>
+  _i3.Digest generateHash(int? timestamp) =>
       (super.noSuchMethod(Invocation.method(#generateHash, [timestamp]),
-          returnValue: '') as String);
+          returnValue: _FakeDigest_1()) as _i3.Digest);
   @override
   Uri generateUrl(String? path) =>
       (super.noSuchMethod(Invocation.method(#generateUrl, [path]),
-          returnValue: _FakeUri_1()) as Uri);
+          returnValue: _FakeUri_2()) as Uri);
   @override
-  _i4.Future<Map<String, dynamic>> get(String? path) => (super.noSuchMethod(
+  _i5.Future<Map<String, dynamic>> get(String? path) => (super.noSuchMethod(
           Invocation.method(#get, [path]),
           returnValue: Future<Map<String, dynamic>>.value(<String, dynamic>{}))
-      as _i4.Future<Map<String, dynamic>>);
+      as _i5.Future<Map<String, dynamic>>);
   @override
   String toString() => super.toString();
 }
