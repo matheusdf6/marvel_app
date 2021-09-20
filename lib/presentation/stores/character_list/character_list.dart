@@ -22,7 +22,7 @@ abstract class CharacterListBase with Store {
   String errorMessage = '';
 
   @action
-  void loadCharacters() async {
+  Future<void> loadCharacters() async {
     loading = true;
     final result = await getCharacterList(GetCharacterListParams(offset: characters.length));
     loading = false;
@@ -36,7 +36,7 @@ abstract class CharacterListBase with Store {
         }
       },
       (success) {
-        characters = success;
+        characters = [...characters, ...success];
       },
     );
   }

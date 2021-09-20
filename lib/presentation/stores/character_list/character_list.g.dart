@@ -58,7 +58,7 @@ mixin _$CharacterList on CharacterListBase, Store {
       AsyncAction('CharacterListBase.loadCharacters');
 
   @override
-  Future loadCharacters() {
+  Future<void> loadCharacters() {
     return _$loadCharactersAsyncAction.run(() => super.loadCharacters());
   }
 

@@ -30,7 +30,7 @@ abstract class CharacterDetailsBase with Store {
   String errorMessage = '';
 
   @action
-  void loadCharacterDetails(int id) async {
+  Future<void> loadCharacterDetails(int id) async {
     loading = true;
     final result = await getCharacterDetails(GetCharacterDetailsParams(id: id));
     loading = false;

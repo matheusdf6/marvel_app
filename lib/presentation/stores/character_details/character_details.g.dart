@@ -103,7 +103,7 @@ mixin _$CharacterDetails on CharacterDetailsBase, Store {
       AsyncAction('CharacterDetailsBase.loadCharacterDetails');
 
   @override
-  Future loadCharacterDetails(int id) {
+  Future<void> loadCharacterDetails(int id) {
     return _$loadCharacterDetailsAsyncAction
         .run(() => super.loadCharacterDetails(id));
   }
