@@ -19,7 +19,7 @@ void main() async {
   const public = '01234';
   const private = '56789';
   const testTimestamp = 9999999999;
-  const testHash = '21295936104e22f306d0159e9040eb34'; // http://www.md5.cz/
+  const testHash = '575bd1eb0c5d977f1526b71ff4a9e608'; // http://www.md5.cz/
   final testData = await fixture('characters.json');
   void setUpMockClientSuccess() {
     when(httpClient.get(any)).thenAnswer((_) async => http.Response(testData, 200));
@@ -46,7 +46,7 @@ void main() async {
     // Act
     final result = apiClient.generateHash(testTimestamp);
     // Assert
-    expect(result, testHash);
+    expect(result.toString(), testHash);
   });
 
   test('should generate url correcly when path is provided', () async {
