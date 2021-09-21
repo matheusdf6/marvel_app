@@ -2,6 +2,18 @@
 
 Aplicativo escrito em Flutter responsável de listar personagens da editora Marvel e conferir seus detalhes.
 
+
+## Como testar?
+
+O projeto usa o arquivo `.env` para inserir informações sensíveis da aplicação. Para testar, faça uma conta no site [developer.marvel.com](https://developer.marvel.com/) e insira a chave pública em MARVEL_API_PUBLIC, a chave privada em MARVEL_API_PRIVATE, e a inicial da API (atualmente, http://gateway.marvel.com/v1/public).
+
+Depois disso, use:
+```
+$ flutter pub get
+
+$ flutter run
+```
+
 ## Requisitos do Projeto
 
 ### Requisitos Funcionais
