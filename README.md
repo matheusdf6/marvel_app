@@ -27,6 +27,10 @@ Foi utilizado *Clean Architecture* para separar as diversas camadas do sistema, 
 
 ![Arquitetura do projeto](images/arquitetura.jpg)
 
+## Imagens do Projeto
+
+![Arquitetura do projeto](images/prints.jpg)
+
 ## Testes
 
 - [x] Testes unitários
