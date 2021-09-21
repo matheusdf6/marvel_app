@@ -20,8 +20,10 @@ class MyApp extends StatelessWidget {
     return ServiceContainer(
       child: MaterialApp(
         title: 'Marvel APP',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.red,
+          brightness: Brightness.dark,
         ),
         home: const HomeScreen(),
       ),
