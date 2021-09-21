@@ -2,7 +2,7 @@ import 'package:marvel_app/core/errors/failures.dart';
 import 'package:marvel_app/domain/usecases/get_character_details.dart';
 import 'package:mobx/mobx.dart';
 
-part "character_details.g.dart";
+part 'character_details.g.dart';
 
 class CharacterDetails = CharacterDetailsBase with _$CharacterDetails;
 

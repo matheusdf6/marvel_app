@@ -3,7 +3,7 @@ import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/domain/usecases/get_character_list.dart';
 import 'package:mobx/mobx.dart';
 
-part "character_list.g.dart";
+part 'character_list.g.dart';
 
 class CharacterList = CharacterListBase with _$CharacterList;
 

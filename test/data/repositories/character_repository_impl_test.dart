@@ -1,11 +1,10 @@
 import 'package:dartz/dartz.dart';
-import "package:flutter_test/flutter_test.dart";
+import 'package:flutter_test/flutter_test.dart';
 import 'package:marvel_app/core/errors/exceptions.dart';
 import 'package:marvel_app/core/errors/failures.dart';
 import 'package:marvel_app/data/datasources/character_remote_data_source.dart';
 import 'package:marvel_app/data/models/character_model.dart';
 import 'package:marvel_app/data/repositories/character_repository_impl.dart';
-import 'package:marvel_app/domain/entities/Character.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -20,7 +19,7 @@ void main() {
     name: 'Teste',
     description: 'Descrição teste',
     thumbnail: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-    comics: ['Avengers: The Initiative (2007) #14'],
+    comics: const ['Avengers: The Initiative (2007) #14'],
   );
   final testListModel = [testCharacterModel];
 

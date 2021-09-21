@@ -21,7 +21,7 @@ void main() {
       name: '3-D Man',
       description: '',
       thumbnail: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-      comics: ['Avengers: The Initiative (2007) #14'],
+      comics: const ['Avengers: The Initiative (2007) #14'],
     ),
   ];
   final testCharacter = CharacterModel(
@@ -29,7 +29,7 @@ void main() {
     name: 'Teste',
     description: 'Descrição teste',
     thumbnail: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-    comics: ['Avengers: The Initiative (2007) #14'],
+    comics: const ['Avengers: The Initiative (2007) #14'],
   );
 
   setUp(() {
@@ -81,7 +81,7 @@ void main() {
       // Arrange
       mockError();
       // Assert
-      expect(() => datasource.index(0), throwsA(TypeMatcher<ServerException>()));
+      expect(() => datasource.index(0), throwsA(const TypeMatcher<ServerException>()));
     });
   });
 
@@ -100,14 +100,14 @@ void main() {
       // Arrange
       mockCharacteNotFound();
       // Assert
-      expect(() => datasource.show(9999), throwsA(TypeMatcher<NotFoundException>()));
+      expect(() => datasource.show(9999), throwsA(const TypeMatcher<NotFoundException>()));
     });
 
     test('should throw ServerException when any code is returned from remote', () async {
       // Arrange
       mockError();
       // Assert
-      expect(() => datasource.show(9999), throwsA(TypeMatcher<ServerException>()));
+      expect(() => datasource.show(9999), throwsA(const TypeMatcher<ServerException>()));
     });
   });
 }

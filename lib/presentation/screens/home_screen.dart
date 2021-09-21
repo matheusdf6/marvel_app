@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:marvel_app/presentation/screens/character_screen.dart';
 import 'package:marvel_app/presentation/stores/character_list/character_list.dart';
 import 'package:marvel_app/presentation/widgets/character_card.dart';
-import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {

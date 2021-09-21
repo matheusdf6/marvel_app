@@ -20,7 +20,7 @@ void main() async {
   const private = '56789';
   const testTimestamp = 9999999999;
   const testHash = '575bd1eb0c5d977f1526b71ff4a9e608'; // http://www.md5.cz/
-  final testData = await fixture('characters.json');
+  final testData = fixture('characters.json');
   void setUpMockClientSuccess() {
     when(httpClient.get(any)).thenAnswer((_) async => http.Response(testData, 200));
   }

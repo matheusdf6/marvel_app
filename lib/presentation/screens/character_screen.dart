@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:marvel_app/domain/entities/character.dart';
-import 'package:marvel_app/presentation/stores/character_details/character_details.dart';
-import 'package:provider/provider.dart';
 
 class CharacterScreen extends StatelessWidget {
   final CharacterScreenParams params;
