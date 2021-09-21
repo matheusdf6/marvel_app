@@ -5,15 +5,18 @@ Aplicativo escrito em Flutter responsável de listar personagens da editora Marv
 ## Requisitos do Projeto
 
 ### Requisitos Funcionais
+
 - Listar personagens com seus respectivos nomes e fotos
 - Ver as caracteristicas de um personagem
 - Listar os quadrinhos com participação do personagem
   
 ### Requisitos Não Funcionais
+
 - A lista de personagens deve possuir paginação infinita
 - Navegar para o personagem através da lista
 
 ## Arquitetura
+
 Foi utilizado *Clean Architecture* para separar as diversas camadas do sistema, mantendo elas desacopladas. Dessa forma, o código é de fácil manutenção e escalável. Essas partes foram separadas da seguinte forma:
 
 | Camada | Responsabilidade | Subcamadas |
@@ -24,3 +27,18 @@ Foi utilizado *Clean Architecture* para separar as diversas camadas do sistema, 
 
 ![Arquitetura do projeto](images/arquitetura.jpg)
 
+## Testes
+
+- [x] Testes unitários
+  - [x] Dominio
+  - [x] Dados
+  - [ ] Apresentação
+- [ ] Testes de integração
+- [ ] Testes end-to-end
+
+## TO-DO
+
+- [ ] Implementar a store GetCharacterDetails para retornar mais informações sobre o personagem
+- [ ] Criar uma entidade para os quadrinhos, e substituir a lista de titulos por uma lista com imagem e titulo
+- [ ] Criar um gerenciamento escalável de navegação
+- [ ] Implementar sistema de cache (online-first)
