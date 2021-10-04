@@ -1,19 +1,17 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:marvel_app/core/errors/failures.dart';
-import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/domain/entities/comic.dart';
 import 'package:marvel_app/domain/repositories/comic_repository.dart';
 import 'package:marvel_app/domain/usecases/get_character_comics.dart';
-import 'package:marvel_app/domain/usecases/get_character_details.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'get_character_comics_test.mocks.dart';
 
-@GenerateMocks([ComicsRepository])
+@GenerateMocks([ComicRepository])
 void main() {
-  late MockComicsRepository mockedRepository;
+  late MockComicRepository mockedRepository;
   late GetCharacterComics getCharacterDetails;
   const testId = 1;
   const testComics = [
@@ -25,7 +23,7 @@ void main() {
   ];
 
   setUp(() {
-    mockedRepository = MockComicsRepository();
+    mockedRepository = MockComicRepository();
     getCharacterDetails = GetCharacterComics(mockedRepository);
   });
 

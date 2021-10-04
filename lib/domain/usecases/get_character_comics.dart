@@ -5,7 +5,7 @@ import 'package:marvel_app/domain/entities/comic.dart';
 import 'package:marvel_app/domain/repositories/comic_repository.dart';
 
 class GetCharacterComics extends UseCase<List<Comic>, GetCharacterComicsParams> {
-  final ComicsRepository repository;
+  final ComicRepository repository;
 
   GetCharacterComics(this.repository);
 
