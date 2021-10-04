@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:marvel_app/domain/entities/character.dart';
+import 'package:marvel_app/presentation/stores/character_details/character_details.dart';
+import 'package:provider/provider.dart';
 
 class CharacterScreen extends StatelessWidget {
   final CharacterScreenParams params;
@@ -14,31 +17,57 @@ class CharacterScreen extends StatelessWidget {
         : 'Não há descrição para o(a) personagem';
   }
 
-  Widget getComicList() {
-    return params.character.comics.isNotEmpty
-        ? SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => ListTile(
-                title: Text(
-                  params.character.comics[index],
-                  style: const TextStyle(
-                    height: 1.5,
+  Widget getComicList(CharacterDetails store) {
+    return SliverToBoxAdapter(
+      child: Observer(
+        builder: (context) {
+          if( store.loading ) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if( store.comics.isEmpty ) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text('Não há quadrinhos com esse persgonagem'),
+            );
+          }
+          return SizedBox(
+            height: 240.0,
+            child: ListView.builder(
+              padding: EdgeInsets.all(16.0),
+              scrollDirection: Axis.horizontal,
+              itemCount: store.comics.length,
+              itemBuilder: (bc, index) => Container(
+                margin: const EdgeInsets.only(right: 16.0),
+                child: GestureDetector(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(store.comics[index].title),
+                    ));
+                  },
+                  child: AspectRatio(
+                    aspectRatio: 2 / 3,
+                    child: Image(
+                      image: NetworkImage(store.comics[index].thumbnail),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-              childCount: params.character.comics.length,
-            ),
-          )
-        : const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text('Não há quadrinhos com esse persgonagem'),
             ),
           );
+
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<CharacterDetails>(context);
+    store.loadCharacterDetails(params.character.id);
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -91,7 +120,7 @@ class CharacterScreen extends StatelessWidget {
               ],
             ),
           ),
-          getComicList()
+          getComicList(store)
         ],
       ),
     );

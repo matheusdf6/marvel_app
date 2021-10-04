@@ -4,7 +4,7 @@ import 'package:marvel_app/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:marvel_app/domain/repositories/comic_repository.dart';
 
-class ComicRepositoryImpl extends ComicsRepository {
+class ComicRepositoryImpl extends ComicRepository {
   final ComicRemoteDataSource remoteDataSource;
 
   ComicRepositoryImpl({
