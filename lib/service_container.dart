@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:marvel_app/data/datasources/comic_remote_data_source.dart';
+import 'package:marvel_app/data/repositories/comic_repository_impl.dart';
+import 'package:marvel_app/domain/repositories/comic_repository.dart';
+import 'package:marvel_app/domain/usecases/get_character_comics.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
@@ -30,9 +34,16 @@ class ServiceContainer extends StatelessWidget {
           ),
         ),
         ProxyProvider<MarvelApiClient, CharacterRemoteDataSource>(
-            update: (_, apiClient, __) => CharacterRemoteDataSource(apiClient)),
+          update: (_, apiClient, __) => CharacterRemoteDataSource(apiClient),
+        ),
+        ProxyProvider<MarvelApiClient, ComicRemoteDataSource>(
+          update: (_, apiClient, __) => ComicRemoteDataSource(apiClient),
+        ),
         ProxyProvider<CharacterRemoteDataSource, CharacterRepository>(
           update: (_, remote, __) => CharacterRepositoryImpl(remoteDataSource: remote),
+        ),
+        ProxyProvider<ComicRemoteDataSource, ComicRepository>(
+          update: (_, remote, __) => ComicRepositoryImpl(remoteDataSource: remote),
         ),
         ProxyProvider<CharacterRepository, GetCharacterDetails>(
           update: (_, repository, __) => GetCharacterDetails(repository),
@@ -40,8 +51,11 @@ class ServiceContainer extends StatelessWidget {
         ProxyProvider<CharacterRepository, GetCharacterList>(
           update: (_, repository, __) => GetCharacterList(repository),
         ),
-        ProxyProvider<GetCharacterDetails, CharacterDetails>(
-          update: (_, usecase, __) => CharacterDetails(getCharacterDetails: usecase),
+        ProxyProvider<ComicRepository, GetCharacterComics>(
+          update: (_, repository, __) => GetCharacterComics(repository),
+        ),
+        ProxyProvider<GetCharacterComics, CharacterDetails>(
+          update: (_, usecase, __) => CharacterDetails(getCharacterComics: usecase),
         ),
         ProxyProvider<GetCharacterList, CharacterList>(
           update: (_, usecase, __) => CharacterList(getCharacterList: usecase),

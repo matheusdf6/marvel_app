@@ -19,7 +19,6 @@ void main() {
       name: 'Teste',
       description: 'Teste',
       thumbnail: 'Teste',
-      comics: const ['Teste'],
     ),
   ];
 

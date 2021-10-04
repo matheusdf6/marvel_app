@@ -1,0 +1,143 @@
+{
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2021 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2021 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2021 MARVEL</a>",
+  "etag": "ef621cdf4a0d5608262a21efbc69577e3e8c088f",
+  "data": {
+    "offset": 0,
+    "limit": 20,
+    "total": 120,
+    "count": 20,
+    "results": [
+      {
+        "id": 99460,
+        "digitalId": 58002,
+        "title": "Spider-Gwen Infinity Comic Primer (2021) #1",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "Gwen Stacy of Earth-65 is Spider-Gwen! Learn the inside story of this Spider-Verse hero with her Infinity Comics primer!",
+        "modified": "2021-09-07T18:01:04-0400",
+        "isbn": "",
+        "upc": "75960620314700111",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "",
+        "format": "Digital Vertical Comic",
+        "pageCount": 10,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Gwen Stacy of Earth-65 is Spider-Gwen! Learn the inside story of this Spider-Verse hero with her Infinity Comics primer!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/99460",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/99460/spider-gwen_infinity_comic_primer_2021_1?utm_campaign=apiRef&utm_source=318c8b4e7daa29efbad1e063e0b15f9d"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=58002&utm_campaign=apiRef&utm_source=318c8b4e7daa29efbad1e063e0b15f9d"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/34272",
+          "name": "Spider-Gwen Infinity Comic Primer (2021)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2021-09-02T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2021-08-09T00:00:00-0400"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2021-09-07T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 0
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/613ac5ddabfe1",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/613ac5ddabfe1",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/99460/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/87",
+              "name": "Mark Bagley",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/13027",
+              "name": "Darren Shan",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12444",
+              "name": "Robbie Thompson",
+              "role": "writer"
+            }
+          ],
+          "returned": 3
+        },
+        "characters": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/99460/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1017603",
+              "name": "Spider-Gwen (Gwen Stacy)"
+            }
+          ],
+          "returned": 1
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/99460/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/220017",
+              "name": "cover from Marvel Primer: Spider-Gwen Infinity Comic (2021) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/220018",
+              "name": "story from Marvel Primer: Spider-Gwen Infinity Comic (2021) #1",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/99460/events",
+          "items": [],
+          "returned": 0
+        }
+      }
+    ]
+  }
+}
