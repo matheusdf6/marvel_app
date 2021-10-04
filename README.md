@@ -54,7 +54,7 @@ Foi utilizado *Clean Architecture* para separar as diversas camadas do sistema, 
 
 ## TO-DO
 
-- [ ] Implementar a store GetCharacterDetails para retornar mais informações sobre o personagem
-- [ ] Criar uma entidade para os quadrinhos, e substituir a lista de titulos por uma lista com imagem e titulo
+- [X] Implementar a store GetCharacterDetails para retornar mais informações sobre o personagem
+- [X] Criar uma entidade para os quadrinhos, e substituir a lista de titulos por uma lista com imagem e titulo
 - [ ] Criar um gerenciamento escalável de navegação
 - [ ] Implementar sistema de cache (online-first)
