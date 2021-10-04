@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:marvel_app/domain/entities/comic.dart';
 
 class ComicModel extends Comic {
@@ -21,4 +23,19 @@ class ComicModel extends Comic {
       thumbnail: '$path.$extension'
     );
   }
+
+  factory ComicModel.fromLocalJson(Map<String,dynamic> map) => 
+    ComicModel(
+      id: map['id'], 
+      title: map['title'], 
+      thumbnail: map['thumbnail']
+    );
+
+  static String toJson(ComicModel model) => 
+    json.encode({
+      'id': model.id,
+      'title': model.title,
+      'thumbnail': model.thumbnail,
+    });
+
 }
