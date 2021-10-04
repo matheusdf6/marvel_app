@@ -19,7 +19,6 @@ void main() {
     name: 'Teste',
     description: 'Descrição teste',
     thumbnail: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-    comics: const ['Avengers: The Initiative (2007) #14'],
   );
   final testListModel = [testCharacterModel];
 

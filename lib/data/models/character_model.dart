@@ -8,27 +8,22 @@ class CharacterModel extends Character {
     required String name,
     required String description,
     required String thumbnail,
-    required List<String> comics,
   }) : super(
           id: id,
           name: name,
           description: description,
           thumbnail: thumbnail,
-          comics: comics,
         );
 
   factory CharacterModel.fromRemoteJson(Map<String, dynamic> map) {
     final path = map['thumbnail']['path'] as String;
     final extension = map['thumbnail']['extension'] as String;
-    final comics = List.from(map['comics']['items']);
-    final comicNameList = comics.map<String>((comic) => comic['name']).toList();
 
     return CharacterModel(
       id: map['id'] as int,
       name: map['name'] as String,
       description: map['description'] as String,
       thumbnail: '$path.$extension',
-      comics: comicNameList,
     );
   }
 
@@ -37,7 +32,6 @@ class CharacterModel extends Character {
         name: map['name'] as String,
         description: map['description'] as String,
         thumbnail: map['thumbnail'] as String,
-        comics: List<String>.from(map['comics']),
       );
 
   static String toJson(CharacterModel model) => json.encode({
@@ -45,6 +39,5 @@ class CharacterModel extends Character {
         'name': model.name,
         'description': model.description,
         'thumbnail': model.thumbnail,
-        'comics': model.comics,
       });
 }
