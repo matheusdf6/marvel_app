@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/presentation/stores/character_details/character_details.dart';
-import 'package:provider/provider.dart';
 
 class CharacterScreen extends StatelessWidget {
   final CharacterScreenParams params;
@@ -21,12 +21,12 @@ class CharacterScreen extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Observer(
         builder: (context) {
-          if( store.loading ) {
+          if (store.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
-          if( store.comics.isEmpty ) {
+          if (store.comics.isEmpty) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Text('Não há quadrinhos com esse persgonagem'),
@@ -57,7 +57,6 @@ class CharacterScreen extends StatelessWidget {
               ),
             ),
           );
-
         },
       ),
     );
@@ -65,7 +64,7 @@ class CharacterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = Provider.of<CharacterDetails>(context);
+    final store = Modular.get<CharacterDetails>();
     store.loadCharacterDetails(params.character.id);
 
     return Scaffold(

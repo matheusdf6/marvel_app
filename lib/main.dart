@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:marvel_app/presentation/screens/home_screen.dart';
-import 'package:marvel_app/service_container.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:marvel_app/modules/main_module.dart';
 
 void main() async {
   await dotenv.load(fileName: '.env');
@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ServiceContainer(
+    return ModularApp(
+      module: MainModule(),
       child: MaterialApp(
         title: 'Marvel APP',
         debugShowCheckedModeBanner: false,
@@ -22,8 +23,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red,
           brightness: Brightness.dark,
         ),
-        home: const HomeScreen(),
-      ),
+      ).modular(),
     );
   }
 }

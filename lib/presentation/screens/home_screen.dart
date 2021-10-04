@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_app/presentation/screens/character_screen.dart';
 import 'package:marvel_app/presentation/stores/character_list/character_list.dart';
 import 'package:marvel_app/presentation/widgets/character_card.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,16 +20,7 @@ class HomeScreen extends StatelessWidget {
                   name: store.characters[index].name,
                   imageUrl: store.characters[index].thumbnail,
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CharacterScreen(
-                          params: CharacterScreenParams(
-                            character: store.characters[index],
-                          ),
-                        ),
-                      ),
-                    );
+                    Modular.to.pushNamed('/character', arguments: store.characters[index]);
                   },
                 ),
               ),
@@ -84,7 +75,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = Provider.of<CharacterList>(context);
+    final store = Modular.get<CharacterList>();
     store.loadCharacters();
     final _scrollController = ScrollController();
     _scrollController.addListener(() {
