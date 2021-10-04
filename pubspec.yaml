@@ -47,8 +47,6 @@ dependencies:
   equatable: ^2.0.3
   # Environment Variables
   flutter_dotenv: ^5.0.2
-  # Services provider
-  provider: ^6.0.0
   # Modular separation
   flutter_modular: ^4.1.1
   

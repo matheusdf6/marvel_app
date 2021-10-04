@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_app/presentation/screens/character_screen.dart';
 import 'package:marvel_app/presentation/stores/character_list/character_list.dart';
 import 'package:marvel_app/presentation/widgets/character_card.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

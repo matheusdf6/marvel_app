@@ -5,7 +5,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_app/domain/entities/character.dart';
 import 'package:marvel_app/presentation/stores/character_details/character_details.dart';
-import 'package:provider/provider.dart';
 
 class CharacterScreen extends StatelessWidget {
   final CharacterScreenParams params;
