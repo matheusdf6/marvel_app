@@ -4,7 +4,7 @@ abstract class Failure {
   Failure({this.properties});
 }
 
-class CacheFailure extends Failure {}
+class LocalStorageFailure extends Failure {}
 
 class ServerFailure extends Failure {}
 

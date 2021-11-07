@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:marvel_app/core/clients/marvel_api_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:marvel_app/data/datasources/character_remote_data_source.dart';
+import 'package:marvel_app/data/datasources/comic_local_data_source.dart';
 import 'package:marvel_app/data/datasources/comic_remote_data_source.dart';
 import 'package:marvel_app/data/repositories/character_repository_impl.dart';
 import 'package:marvel_app/data/repositories/comic_repository_impl.dart';
@@ -27,8 +28,10 @@ class CharactersModule extends Module {
             )),
         Bind.factory((i) => CharacterRemoteDataSource(i())),
         Bind.factory((i) => ComicRemoteDataSource(i())),
+        Bind.factory((i) => ComicLocalDataSource(storage: i())),
         Bind.factory<CharacterRepository>((i) => CharacterRepositoryImpl(remoteDataSource: i())),
-        Bind.factory<ComicRepository>((i) => ComicRepositoryImpl(remoteDataSource: i())),
+        Bind.factory<ComicRepository>((i) =>
+            ComicRepositoryImpl(remoteDataSource: i(), connection: i(), localDataSource: i())),
         Bind.factory((i) => GetCharacterDetails(i())),
         Bind.factory((i) => GetCharacterList(i())),
         Bind.factory((i) => GetCharacterComics(i())),
